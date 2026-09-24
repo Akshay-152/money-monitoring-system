@@ -6,7 +6,7 @@ def format_inr(amount: float, decimals: int = 2) -> str:
     """Format INR with Indian lakh/crore grouping and a Unicode minus sign."""
     value = Decimal(str(amount)).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
     sign = "−" if value < 0 else ""
-    text = f"{abs(value):,.{decimals}f}"
+    text = f"{abs(value):.{decimals}f}"
     whole, _, fraction = text.partition(".")
     last = whole[-3:]
     prefix = whole[:-3]
