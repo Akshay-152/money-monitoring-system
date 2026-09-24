@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FLUX Money OS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar"><a class="brand" href="/">FLUX<span>/money</span></a><div class="top-actions"><time id="today"></time><button id="theme" class="icon-button" aria-label="Toggle theme">☼</button></div></header>
+    <section class="hero"><div><p class="eyebrow">TOTAL BALANCE</p><h1 id="balance">₹0</h1><p id="delta" class="positive">↑ ₹0 this month</p></div><div class="hero-mark">01<br><span>LEDGER</span></div></section>
+    <section class="stats"><div><span>INCOME</span><strong id="income">₹0</strong></div><div><span>EXPENSE</span><strong id="expense">₹0</strong></div><div><span>ENTRIES</span><strong id="entries">0</strong></div></section>
+    <nav class="tabs" aria-label="Main sections"><button class="active" data-tab="overview">Overview</button><button data-tab="transactions">Transactions</button><button data-tab="budgets">Budgets</button><button data-tab="goals">Goals</button></nav>
+    <section id="overview" class="panel"><div class="panel-heading"><div><p class="eyebrow">MONTHLY FLOW</p><h2 id="month-label"></h2></div><button class="primary" data-tab="add">+ Add entry</button></div><div class="chart" id="chart"></div><div class="section-heading"><h3>Needs your attention</h3><span id="pending-count"></span></div><div id="pending" class="pending-list"></div></section>
+    <section id="transactions" class="panel hidden"><div class="panel-heading"><div><p class="eyebrow">LEDGER</p><h2>All transactions</h2></div><button class="primary" data-tab="add">+ Add entry</button></div><input id="search" class="search" placeholder="Search merchant, category, notes..."><div id="transaction-list"></div></section>
+    <section id="budgets" class="panel hidden"><div class="panel-heading"><div><p class="eyebrow">GUARDRAILS</p><h2>Monthly budgets</h2></div></div><div id="budget-list"></div></section>
+    <section id="goals" class="panel hidden"><div class="panel-heading"><div><p class="eyebrow">DIRECTION</p><h2>Savings goals</h2></div><button class="primary" data-tab="add-goal">+ New goal</button></div><div id="goal-list"></div></section>
+    <section id="add" class="panel hidden"><div class="panel-heading"><div><p class="eyebrow">MANUAL ENTRY</p><h2>Log a payment</h2></div></div><form id="entry-form"><label>Amount<input name="amount" type="number" step="0.01" placeholder="-50" required></label><label>Description<input name="description" placeholder="Merchant or note" required></label><label>Category<select name="category"><option value="">Unclassified</option><option>Food</option><option>Groceries</option><option>Transport</option><option>Shopping</option><option>Bills</option><option>Other</option></select></label><label>Payment mode<select name="payment_mode"><option>UPI</option><option>Cash</option><option>Debit Card</option><option>Credit Card</option><option>Net Banking</option><option>Wallet</option></select></label><button class="primary" type="submit">Save entry</button></form></section>
+    <section id="add-goal" class="panel hidden"><div class="panel-heading"><div><p class="eyebrow">NEW TARGET</p><h2>Create a goal</h2></div></div><form id="goal-form"><label>Name<input name="name" placeholder="New laptop" required></label><label>Target amount<input name="target" type="number" step="0.01" required></label><label>Icon<input name="emoji" value="◎" maxlength="2"></label><button class="primary" type="submit">Create goal</button></form></section>
+  </main><div id="toast" role="status" aria-live="polite"></div><script src="/app.js"></script>
+</body></html>

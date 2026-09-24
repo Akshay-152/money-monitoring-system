@@ -1,0 +1,10 @@
+.env
+*.db
+data/*
+!data/.gitkeep
+__pycache__/
+.pytest_cache/
+.venv/
+credentials.json
+token.json
+service-account.json
